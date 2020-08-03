@@ -10,7 +10,7 @@ For a full list of supported tags, refer [here](https://hub.docker.com/r/zaimram
 
 ### Notes
 - For compatibility with GitHub Actions, `Git` is reinstalled with `2.28.0`
-- For ease of use, `Bundler v2.1.4` is pre-installed
+- For ease of use, `Bundler 2.1.4` is pre-installed
 
 ## Motivations
 - There isn't a straightforward way to install SwiftLint on Linux-based machines

@@ -10,6 +10,7 @@ jobs:
     env:
       DOCKER_IMAGE_TAG: 1.0.0
       DOCKER_SPECIFIC_IMAGE_TAG: swift-5.2.4_swiftlint-0.39.2_ruby-2.5.1
+      DOCKER_SPECIFIC_IMAGE_TAG_ALIAS: swift-5.2_swiftlint-0.39.2_ruby-2.5.1
     steps:
     - name: Clone Repository
       uses: actions/checkout@v2
@@ -19,6 +20,7 @@ jobs:
         docker build $DOCKER_IMAGE_TAG/. -t zaimramlan/swift-swiftlint-ruby:latest
         docker tag zaimramlan/swift-swiftlint-ruby:latest zaimramlan/swift-swiftlint-ruby:$DOCKER_IMAGE_TAG
         docker tag zaimramlan/swift-swiftlint-ruby:latest zaimramlan/swift-swiftlint-ruby:$DOCKER_SPECIFIC_IMAGE_TAG
+        docker tag zaimramlan/swift-swiftlint-ruby:latest zaimramlan/swift-swiftlint-ruby:$DOCKER_SPECIFIC_IMAGE_TAG_ALIAS
 
     - name: Push Images to Registry
       run: |
@@ -26,3 +28,4 @@ jobs:
         docker push zaimramlan/swift-swiftlint-ruby:latest
         docker push zaimramlan/swift-swiftlint-ruby:$DOCKER_IMAGE_TAG
         docker push zaimramlan/swift-swiftlint-ruby:$DOCKER_SPECIFIC_IMAGE_TAG
+        docker push zaimramlan/swift-swiftlint-ruby:$DOCKER_SPECIFIC_IMAGE_TAG_ALIAS
